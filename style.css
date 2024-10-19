@@ -105,6 +105,57 @@ ul ul {
     filter: drop-shadow(15px 10px black);
 }
 
+#blognav {
+    background-image: url("images/blogbg.jpg");
+    background-color: #459b64;
+}
+
+#reviewnav {
+    background-image: url("images/reviewbg.jpg");
+    background-color: #530084;
+}
+
+#moviereviewnav {
+    background-image: url("images/moviereviewbg.jpg");
+    background-color: #530084;
+}
+
+#musicreviewnav {
+    background-image: url("images/musicreviewbg.jpg");
+    background-color: #530084;
+}
+
+#videogamereviewnav {
+    background-image: url("images/videogamereviewbg.jpg");
+    background-color: #530084;
+}
+
+#friendnav {
+    background-image: url("images/friendsbg.jpg");
+    background-color: #740000;
+}
+
+#socialsnav {
+    background-image: url("images/socialsbg.jpg");
+    background-color: black;
+}
+
+#blognavheader {
+    background-color: #1a5e32;
+}
+
+#reviewnavheader {
+    background-color: #39005b;
+}
+
+#friendnavheader {
+    background-color: #960000;
+}
+
+#socialsnavheader {
+    background-color: #2b2b2b;
+}
+
 .bodyheader {
     background-color: #0f1b72;
     max-width: fit-content;
