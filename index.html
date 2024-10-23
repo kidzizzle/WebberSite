@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
-        <title>TheWebberSite</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="BloggerNo1's personal website featuring blog posts, 
+        reviews, and other cool content!">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>TheWebberSite | PCx180e's Website</title>
         <link href="./style.css" rel="stylesheet" type="text/css" media="all">
     </head>
     <body>
@@ -25,11 +29,36 @@
                     <a href="./pages/friends.html"><li>Friends</li></a>
                 </ul>
             </div>
-            <div class="flex-child bodywrapper">
+            <!-- <div class="flex-child bodywrapper">
                 <h2 class="center centerText bodyheader">Home</h2>
-                <p class="center"><br>Hello! Welcome to The WebberSite. 
+                <br>
+                <p class="center">Hello! Welcome to The WebberSite. 
                 You're here during the early stages of my website, so I'm not
                 exactly sure what all will be on here yet, but whatever it is will be cool!</p>
+                <br>
+                <h3 class="center spanheader"><em>Featured Posts</em></h3>
+                <br>
+                <a href="./pages/blogs/01_welcometomyblog.html">Blog 01 - Welcome To My Blog!</a>
+                <p>&ensp;An introduction blog to get to know me.</p>
+            </div> -->
+            <div class="flex-child">
+                <div class="bodywrapper">
+                    <h2 class="center centerText bodyheader">Home</h2>
+                    <br>
+                    <p class="centerText">You've reached The WebberSite. There's no going back.</p>
+                </div>
+                <div class="bodywrapper" id="featuredposts">
+                    <h2 class="center centerText bodyheader" id="featuredheader">Featured Posts</h3>
+                    <br>
+                    <div id="postboard">
+                        <div class="featuredpost centerText">
+                            <img src="./images/staple.png" style="height: 75px; width: 75px; rotate: -20deg; position: relative; left: -30px; top: -30px;">
+                            <br>
+                            <a href="./pages/blogs/01_welcometomyblog.html">Blog 01 - Welcome To My Blog!</a>
+                            <p>An introduction blog to get to know me.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </body>
