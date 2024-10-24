@@ -256,6 +256,15 @@ ul ul {
     text-decoration: underline;
 }
 
+.staple {
+	height: 75px;
+	width: 75px;
+	rotate: -20deg;
+	position: relative;
+	left: -30px;
+	top: -30px;
+}
+
 .navheader {
     background-color: #640057;
     max-width: fit-content;
