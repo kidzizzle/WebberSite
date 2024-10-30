@@ -15,9 +15,9 @@
             </div>
         </div>
         <div class="flex-container" id="mainbody">
-            <div class="flex-child navwrapper">
+            <div class="flex-child navwrapper" id="navigationmenu">
                 <h2 class="center centerText navheader">Navigation Menu</h2>
-                <ul class="navlist">
+                <ul>
                     <a href="./index.html"><li>Home</li></a>
                     <a href="./pages/blognav.html"><li>Blog Posts</li></a>
                     <a href="./pages/reviewnav.html"><li>Reviews</li></a>
@@ -35,23 +35,25 @@
                     <h2 class="center centerText bodyheader">Home</h2>
                     <br>
                     <p class="centerText">You've reached The WebberSite. There's no going back.</p>
+                    <div class="centerText smallnav" id="homesmallnav">
+                        <p><b>Navigation Menu</b></p>
+                        <a href="./pages/blognav.html"><p>Blog Posts</p></a>
+                        <a href="./pages/reviewnav.html"><p>Reviews</p></a>
+                        <a href="./pages/socials.html"><p>Social Media Links</p></a>
+                        <a href="./pages/friends.html"><p>Friends</p></a>
+                    </div>
+                    <br>
                 </div>
                 <div class="bodywrapper" id="featuredposts">
                     <h2 class="center centerText bodyheader" id="featuredheader">Featured Posts</h3>
                     <br>
                     <div id="postboard" class="flex-container">
-                        <div class="featuredpost centerText flex-child">
+                        <div class="featuredpost centerText">
                             <img src="./images/staple.png" style="height: 75px; width: 75px; rotate: -20deg; position: relative; left: -30px; top: -30px;">
                             <br>
                             <a href="./pages/blogs/01_welcometomyblog.html">Blog 01 - Welcome To My Blog!</a>
                             <p>An introduction blog to get to know me.</p>
                         </div>
-						<div class="featuredpost centerText flex-child">
-							<img src="./images/staple.png" class="staple"> 
-							<br>
-							<a href="./pages/blogs/02_charliekirk.html">Blog 02 - Politicians Ruin My Life</a>
-							<p>A rant about the things I have to walk past every day of my life while I'm 
-							trying to learn about computers and cool things.</p>
                     </div>
                 </div>
             </div>
