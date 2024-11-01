@@ -116,6 +116,7 @@ ul ul {
     border: 0.1em dotted white;
     background-color: #640057;
     box-shadow: black 3px 3px 1px;
+    padding-right: 0.5em;
 }
 
 .navwrapper ul ul {
