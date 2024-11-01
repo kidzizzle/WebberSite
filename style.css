@@ -35,10 +35,11 @@
 body {
     color: whitesmoke;
     background: url("images/ghost.gif") fixed, url("images/cbg.jpg") scroll;
-    background-size: 100px;
+    background-size: 10vh;
     background-color: rgb(0, 0, 0);
     font-size: 24px;
-    padding: 0.5em 0.5em;
+    padding-top: 1em;
+    padding-bottom: 1em;
     position: relative;
     font-family: 'Times New Roman', Times, serif;
 }
@@ -80,7 +81,7 @@ ul ul {
 .bodywrapper {
     border: 0.4em ridge lightgray;
     background-image: url("images/bbg.jpg");
-    background-size: 100px;
+    background-size: 10vh;
     background-attachment: fixed;
     background-color: #00128f;
     color: whitesmoke;
@@ -95,7 +96,7 @@ ul ul {
 .navwrapper {
     border: 0.4em ridge lightgray;
     background-image: url("images/pbg.jpg");
-    background-size: 100px;
+    background-size: 10vh;
     background-attachment: fixed;
     background-color: #00128f;
     color: whitesmoke;
@@ -133,7 +134,7 @@ ul ul {
 #homesmallnav {
     align-content: center;
     background-image: url("images/pbg.jpg");
-    background-size: 100px;
+    background-size: 10vh;
     background-color: #640057;
     border: 0.1em dotted white;
     box-shadow: inset black 0px 0px 60px -20px, black 3px 3px 20px;
@@ -152,6 +153,7 @@ ul ul {
     color: black;
     text-shadow: none;
     max-width: 90%;
+    overflow: hidden;
 }
 
 #blogpost a:link, #blogpost a:visited {
@@ -193,7 +195,7 @@ ul ul {
 
 #featuredposts {
     background-image: url("images/bgfp.jpg");
-    background-size: 100px;
+    background-size: 10vh;
     background-color: #0f1b72;
 }
 
@@ -216,43 +218,43 @@ ul ul {
 
 #blognav {
     background-image: url("images/blogbg.jpg");
-    background-size: 100px;
+    background-size: 10vh;
     background-color: #459b64;
 }
 
 #reviewnav {
     background-image: url("images/reviewbg.jpg");
-    background-size: 100px;
+    background-size: 10vh;
     background-color: #530084;
 }
 
 #moviereviewnav {
     background-image: url("images/moviereviewbg.jpg");
-    background-size: 100px;
+    background-size: 10vh;
     background-color: #530084;
 }
 
 #musicreviewnav {
     background-image: url("images/musicreviewbg.jpg");
-    background-size: 100px;
+    background-size: 10vh;
     background-color: #530084;
 }
 
 #videogamereviewnav {
     background-image: url("images/videogamereviewbg.jpg");
-    background-size: 100px;
+    background-size: 10vh;
     background-color: #530084;
 }
 
 #friendnav {
     background-image: url("images/friendsbg.jpg");
-    background-size: 100px;
+    background-size: 10vh;
     background-color: #740000;
 }
 
 #socialsnav {
     background-image: url("images/socialsbg.jpg");
-    background-size: 100px;
+    background-size: 10vh;
     background-color: black;
 }
 
@@ -290,7 +292,7 @@ ul ul {
 .featuredpost {
     flex: 1 0 40%;
     background-image: url("images/fp.jpg");
-    background-size: 100px;
+    background-size: 10vh;
     font-weight: bold;
     font-family: 'Courier New', Courier, monospace;
     color: black;
@@ -334,6 +336,7 @@ ul ul {
     justify-content: center;
     align-content: center;
     align-items: flex-start;
+    gap: 1em;
 }
 
 .flex-child {
@@ -349,4 +352,11 @@ ul ul {
 .centerText {
     justify-content: center;
     text-align: center;
+}
+
+.albumCover {
+    float: left;
+    margin-right: 1em;
+    width: 200px;
+    height: 200px;
 }
