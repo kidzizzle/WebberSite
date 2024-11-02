@@ -24,10 +24,22 @@
     .bodywrapper {
         min-width: 100%;
     }
+
+    .albumCoverSmallScreen {
+        display: flex;
+    }
+
+    .albumCoverBigScreen {
+        display: none;
+    }
 }
 
 @media all and (min-width: 1000px) {
     .smallnav {
+        display: none;
+    }
+
+    .albumCoverSmallScreen {
         display: none;
     }
 }
@@ -345,6 +357,12 @@ ul ul {
     flex: 1;
 }
 
+.columnText {
+    margin: auto;
+    text-align: justify;
+    max-width: 800px;
+}
+
 .center {
     display: flex;
     margin: auto;
@@ -355,9 +373,16 @@ ul ul {
     text-align: center;
 }
 
-.albumCover {
+.albumCoverBigScreen {
     float: left;
     margin-right: 1em;
+    width: 200px;
+    height: 200px;
+}
+
+.albumCoverSmallScreen {
+    margin: auto;
+    margin-top: 1em;
     width: 200px;
     height: 200px;
 }
