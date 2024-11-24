@@ -36,6 +36,10 @@
     .albumCoverBigScreen {
         display: none;
     }
+
+	.inblogimage {
+		max-width: 80%;
+	}
 }
 
 @media all and (min-width: 1000px) {
@@ -50,6 +54,10 @@
     .albumCoverSmallScreen {
         display: none;
     }
+
+	.inblogimage {
+		max-width: 600px;
+	}
 }
 
 body {
@@ -96,6 +104,20 @@ ul ul {
     list-style: none;
     text-align: left;
     margin-bottom: 1em;
+}
+
+.inblogimage {
+	display: flex;
+	margin: auto;
+}
+
+.staple {
+	height: 75px;
+	width: 75px;
+	rotate: -20deg;
+	position: relative;
+	left: -30px;
+	top: -30px;
 }
 
 .bodywrapper {
