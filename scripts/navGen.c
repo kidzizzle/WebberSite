@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
 #include <dirent.h>
@@ -79,7 +80,11 @@ postListing *createPostListing(const char* fileName, const char* title, const ch
     t->fileName = strdup(fileName);
     t->title = strdup(title);
     t->description = strdup(description);
-    t->tag = strdup(tag);
+	if (tag != NULL) {
+		t->tag = strdup(tag);
+	} else {
+		t->tag = NULL;
+	}
 
     return t;
 }
@@ -156,6 +161,7 @@ postListing *parsePost(char* directoryPath, char* fileName)
     free(title);
     free(description);
     free(tag);
+
     return t;
 }
 
@@ -265,7 +271,7 @@ void genNewNavFile(FILE* outputFile, listType typeOfList, bool inGeneralNav)
             printf("Posts tagged %s:\n", tagList[i]);
             fprintf(outputFile, "\t<h3 id=\"%s\">%s</h3>\n",
                     tagList[i], tagList[i]);
-            for (int j = numberOfPosts - 1; j >= 0; j--) {
+            for (int j = 0; j < numberOfPosts; j++) {
                 if (strcmp(allPosts[j]->tag, tagList[i]) == 0) {
                     fprintf(outputFile, "\t<a href=\"%s%s\" style=\"%s\">%s%s%s</a>\n", 
                         listInfo->navDirectoryPath, allPosts[j]->fileName, listInfo->titleStyles, 
@@ -278,7 +284,7 @@ void genNewNavFile(FILE* outputFile, listType typeOfList, bool inGeneralNav)
             }
         }
     } else {
-        for (int i = numberOfPosts - 1; i >= 0; i--) {
+        for (int i = 0; i < numberOfPosts; i++) {
             fprintf(outputFile, "\t<a href=\"%s%s\" style=\"%s\">%s%s%s</a>\n", 
                 listInfo->navDirectoryPath, allPosts[i]->fileName, listInfo->titleStyles, 
                 listInfo->titleDecoration, allPosts[i]->title, listInfo->titleDecorationCloser);
@@ -331,7 +337,7 @@ void updateNavFile(const char* navFileName, listType typeOfList)
     bool inItemList = false;
 
     while (fgets(linebuffer, sizeof(linebuffer), navFile)) {
-        if (strstr(linebuffer, "<!--itemlistover-->\n") != NULL) {
+        if (strstr(linebuffer, "<!--itemlistover-->") != NULL) {
             inItemList = false;
         }
 
@@ -341,7 +347,7 @@ void updateNavFile(const char* navFileName, listType typeOfList)
             fprintf(tempFile, "%s", linebuffer);
         }
 
-        if (strstr(linebuffer, "<!--itemlist-->\n") != NULL) {
+        if (strstr(linebuffer, "<!--itemlist-->") != NULL) {
             inItemList = true; 
             if (inGeneralNav) {
                 typeOfList = MUSIC;
@@ -364,6 +370,9 @@ void updateNavFile(const char* navFileName, listType typeOfList)
 
 int main(void)
 {
+	char cwd[200];
+	getcwd(cwd, sizeof(cwd));
+	printf("%s\n", cwd);
     listType currListGen = BLOG;
     updateNavFile("../pages/blognav.html", currListGen);
     currListGen = MOVIE;
