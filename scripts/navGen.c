@@ -1,3 +1,10 @@
+/* Generates nav pages for reviews and blog posts based on all files stored in the 
+ * appropriate directory with the appropriate information.
+ *
+ * Currently not checked at all for memory leaks. Could be bad.
+ * TODO: Check for memory leaks LOL!
+ *
+ */
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
@@ -12,7 +19,7 @@
 
 typedef enum {BLOG, MUSIC, MOVIE, VG, GENERAL} listType;
 
-// Some type of struct to hold the listing type info
+// holds information to print specific to each list type
 typedef struct
 {
     char* directoryPath;
@@ -55,6 +62,7 @@ listTypeValues *createListTypeValues(const char* directoryPath, const char* navD
     return t;
 }
 
+// holds information to print for each post
 typedef struct
 {
     char* fileName;
@@ -89,6 +97,28 @@ postListing *createPostListing(const char* fileName, const char* title, const ch
     return t;
 }
 
+// compares the first three characters of the fileName of a post to use for sorting
+// (currently fileNames consist of ###_nameOfPost, which is why only the first three
+// characters are neccessary
+int postComparison(const void *a, const void *b) {
+    postListing *tmp1 = (postListing*)a;
+    postListing *tmp2 = (postListing*)b;
+    
+    for (int i = 0; i < 3; i++) {
+        if (tmp1->fileName[i] != tmp2->fileName[i]) {
+            if (tmp1->fileName[i] > tmp2->fileName[i]) {
+                return -1;
+            } else {
+                return 1;
+            }
+        }
+    }
+
+    return 0;
+}
+
+// populates a listTypeValues based on the current listType and returns a pointer to a 
+// listTypeValues object
 listTypeValues *populateListInfo(listType typeOfList)
 {
     listTypeValues *t;
@@ -116,6 +146,8 @@ listTypeValues *populateListInfo(listType typeOfList)
     return t;
 }
 
+// parses an html file for the appropriate information (title, description, tags), and 
+// creates a postListing object with those values
 postListing *parsePost(char* directoryPath, char* fileName)
 {
     char* filePath;
@@ -165,6 +197,7 @@ postListing *parsePost(char* directoryPath, char* fileName)
     return t;
 }
 
+// checks a list of strings to see if tag already exists
 bool checkForTag(char tagList[TAGLISTMAX][TAGLISTMAXSTRINGLENGTH], char* tag)
 {
     bool doesTagExist = false; 
@@ -210,8 +243,7 @@ void genNewNavFile(FILE* outputFile, listType typeOfList, bool inGeneralNav)
         for (int i = len - 5; i < len; i++) {
             extCheck[i - len + 5] = de->d_name[i];
         }
-        // TODO: Figure out how to generate tag for music nav
-        // TODO: General Review logistics
+
         if (strstr(extCheck, ".html") != NULL) {
             // de->d_name = filename of post
             currPost = parsePost(listInfo->directoryPath, de->d_name);
@@ -230,6 +262,7 @@ void genNewNavFile(FILE* outputFile, listType typeOfList, bool inGeneralNav)
     }
 
     printf("Number of posts: %i\n", numberOfPosts);
+    qsort(allPosts, numberOfPosts, sizeof(allPosts[0]), postComparison);
 
     if (inGeneralNav) {
         fprintf(outputFile, "\t<br>\n");
@@ -300,8 +333,6 @@ void genNewNavFile(FILE* outputFile, listType typeOfList, bool inGeneralNav)
 
     closedir(dr);
     destroyListTypeValues(listInfo);
-
-    // Output listings based on information
 }
 
 // Function to read file up to <!-- itemList -->
