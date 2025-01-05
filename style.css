@@ -238,15 +238,16 @@ ul ul {
 }
 
 #blogreturnhome {
+    flex-basis: 50%;
     margin-left: 0;
-    margin-right: auto;
+    margin-right: 1em;
     text-align: left;
-
 }
 
 #blogreturnlist {
+    flex-basis: 50%;
     margin-right: 0;
-    margin-left: auto;
+    margin-left: 1em;
     text-align: right;
 }
 

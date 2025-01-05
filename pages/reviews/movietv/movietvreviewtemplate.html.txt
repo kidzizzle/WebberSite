@@ -11,8 +11,8 @@
     <body>
         <div class="bodywrapper" id="blogpost">
             <div id="blogreturn">
-                <a href="../../../index.html"><p id="blogreturnhome">Return To Home</p></a>
-                <a href="../movietvreviewnav.html"><p id="blogreturnlist">Return To Movie/ TV Review List</p></a>
+                <a href="../../../index.html"><p id="blogreturnhome">Return To<br>Home</p></a>
+                <a href="../movietvreviewnav.html"><p id="blogreturnlist">Return To<br>Movie/TV Review List</p></a>
             </div>
             <h2 class="center centerText">Movie Review Title Here!!</h2>
 			<h3 class="center centerText">Director Name here!!</h3>
