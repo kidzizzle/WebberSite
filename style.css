@@ -62,7 +62,7 @@
 
 body {
     color: whitesmoke;
-    background: url("images/ghost.gif") fixed, url("images/cbg.jpg") scroll;
+    background: url("images/ghost.gif") fixed, url("images/cbg.jpg") fixed;
     background-size: 10vh;
     background-color: rgb(0, 0, 0);
     font-size: 20px;
