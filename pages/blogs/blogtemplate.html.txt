@@ -11,8 +11,8 @@
     <body>
         <div class="bodywrapper" id="blogpost">
             <div id="blogreturn">
-                <a href="../../index.html"><p id="blogreturnhome">Return To Home</p></a>
-                <a href="../blognav.html"><p id="blogreturnlist">Return To Blog List</p></a>
+                <a href="../../index.html"><p id="blogreturnhome">Return To<br>Home</p></a>
+                <a href="../blognav.html"><p id="blogreturnlist">Return To<br>Blog List</p></a>
             </div>
             <h2 class="center centerText">Blog Title Here!!</h2>
             <br>

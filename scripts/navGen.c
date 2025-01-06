@@ -401,9 +401,9 @@ void updateNavFile(const char* navFileName, listType typeOfList)
 
 int main(void)
 {
-	char cwd[200];
-	getcwd(cwd, sizeof(cwd));
-	printf("%s\n", cwd);
+    char cwd[200];
+    getcwd(cwd, sizeof(cwd));
+    printf("%s\n", cwd);
     listType currListGen = BLOG;
     updateNavFile("../pages/blognav.html", currListGen);
     currListGen = MOVIE;
