@@ -88,11 +88,11 @@ postListing *createPostListing(const char* fileName, const char* title, const ch
     t->fileName = strdup(fileName);
     t->title = strdup(title);
     t->description = strdup(description);
-	if (tag != NULL) {
-		t->tag = strdup(tag);
-	} else {
-		t->tag = NULL;
-	}
+    if (tag != NULL) {
+        t->tag = strdup(tag);
+    } else {
+        t->tag = NULL;
+    }
 
     return t;
 }
@@ -101,12 +101,12 @@ postListing *createPostListing(const char* fileName, const char* title, const ch
 // (currently fileNames consist of ###_nameOfPost, which is why only the first three
 // characters are neccessary
 int postComparison(const void *a, const void *b) {
-    postListing *tmp1 = (postListing*)a;
-    postListing *tmp2 = (postListing*)b;
+    const postListing *tmp1 = *(postListing**)a;
+    const postListing *tmp2 = *(postListing**)b;
     
     for (int i = 0; i < 3; i++) {
-        if (tmp1->fileName[i] != tmp2->fileName[i]) {
-            if (tmp1->fileName[i] > tmp2->fileName[i]) {
+        if ((int)(tmp1->fileName[i]) != (int)(tmp2->fileName[i])) {
+            if ((int)(tmp1->fileName[i]) > (int)(tmp2->fileName[i])) {
                 return -1;
             } else {
                 return 1;
@@ -262,7 +262,7 @@ void genNewNavFile(FILE* outputFile, listType typeOfList, bool inGeneralNav)
     }
 
     printf("Number of posts: %i\n", numberOfPosts);
-    qsort(allPosts, numberOfPosts, sizeof(allPosts[0]), postComparison);
+    qsort(allPosts, numberOfPosts, sizeof(postListing *), postComparison);
 
     if (inGeneralNav) {
         fprintf(outputFile, "\t<br>\n");
